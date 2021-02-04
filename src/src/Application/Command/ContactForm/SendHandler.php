@@ -10,8 +10,6 @@ use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 final class SendHandler implements MessageHandlerInterface
 {
-    private const SUBJECT = 'Message from contact from';
-
     private Mailer $mailer;
 
     public function __construct(Mailer $mailer)
