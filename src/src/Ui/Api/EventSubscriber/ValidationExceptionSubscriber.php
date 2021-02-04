@@ -13,7 +13,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 final class ValidationExceptionSubscriber implements EventSubscriberInterface
 {
     /**
-     * @return array[]
+     * @return string[][]
      */
     public static function getSubscribedEvents(): array
     {
