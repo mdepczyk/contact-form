@@ -1,0 +1,5 @@
+v1_contact_form_send:
+  path: '/send'
+  methods: ['POST']
+  defaults:
+    _controller: Eobuwie\Recruitment\Ui\Api\Controller\ContactForm\SendAction

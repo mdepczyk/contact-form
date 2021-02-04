@@ -1,0 +1,69 @@
+openapi: 3.0.2
+info:
+  title: Eobuwie Recruitment Api
+  version: 1.0.0
+paths:
+  /form/send:
+    post:
+      summary: Send email for contact form
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SendFormRequest'
+      responses:
+        '201':
+          description: Email sended
+        '400':
+          $ref: '#/components/responses/Error.Bad.Request'
+      tags:
+        - Form
+
+components:
+  schemas:
+    SendFormRequest:
+      type: object
+      description: Body of send form request
+      required: [name, email, message]
+      properties:
+        name:
+          type: string
+          example: John
+        email:
+          type: string
+          example: john@example.com
+        message:
+          type: string
+          example: Example message.
+    Error.General:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 400
+        message:
+          type: string
+          example: "Validation failed"
+    Error.Bad.Request:
+      allOf:
+        - $ref: '#/components/schemas/Error.General'
+        - type: object
+          properties:
+            errors:
+              type: object
+              description: Keys reference to the fields where the error occurred.
+              additionalProperties:
+                type: string
+                example: Email is not valid
+  responses:
+    Error.Bad.Request:
+      description: Bad Request
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error.Bad.Request'
+
+servers:
+  - url: 'http://localhost:8000/api/v1'
+    description: Docker

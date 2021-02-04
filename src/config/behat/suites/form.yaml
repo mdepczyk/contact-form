@@ -1,0 +1,8 @@
+default:
+  suites:
+    form:
+      contexts:
+        - Imbo\BehatApiExtension\Context\ApiContext
+
+      filters:
+        tags: "@form"

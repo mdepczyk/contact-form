@@ -1,0 +1,13 @@
+includes:
+  - vendor/phpstan/phpstan-webmozart-assert/extension.neon
+  - vendor/phpstan/phpstan-symfony/extension.neon
+
+parameters:
+  level: max
+  reportUnmatchedIgnoredErrors: false
+  inferPrivatePropertyTypeFromConstructor: true
+  checkMissingIterableValueType: false
+  checkGenericClassInNonGenericObjectType: false
+  paths:
+    - src/
+    - tests/

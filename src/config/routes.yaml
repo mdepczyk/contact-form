@@ -1,0 +1,6 @@
+http:
+  resource: routes/http.yaml
+
+api_v1:
+  resource: routes/api/v1.yaml
+  prefix: /api/v1

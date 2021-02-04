@@ -1,0 +1,3 @@
+index:
+  path: /
+  controller: Eobuwie\Recruitment\Ui\Http\Controller\FormController

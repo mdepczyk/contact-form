@@ -1,0 +1,24 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Eobuwie\Recruitment\:
+    resource: '../src/'
+    exclude:
+      - '../src/Kernel.php'
+      - '../src/Tests/'
+
+  Eobuwie\Recruitment\Ui\Api\Controller\:
+    resource: '../src/Ui/Api/Controller/'
+    tags: [ 'controller.service_arguments' ]
+
+  Eobuwie\Recruitment\Ui\Api\ArgumentResolver\RequestDTOResolver:
+    arguments:
+      - '@validator'
+    tags:
+      - { name: controller.request_value_resolver, priority: 50 }
+
+  Eobuwie\Recruitment\Infrastructure\SMTP\ContactForm\Mailer:
+    arguments:
+      $receiver: '%env(RECEIVER)%'

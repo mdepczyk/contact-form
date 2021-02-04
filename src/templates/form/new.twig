@@ -1,0 +1,9 @@
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    {{ form_row(form.name, {'full_name':'name'}) }}
+    {{ form_row(form.email, {'full_name':'email'}) }}
+    {{ form_row(form.message, {'full_name':'message'}) }}
+
+    {{ form_row(form.send, {'full_name':'send'}) }}
+{{ form_end(form) }}

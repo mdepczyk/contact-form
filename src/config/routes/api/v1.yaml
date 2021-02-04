@@ -1,0 +1,3 @@
+v1_contact_form:
+  resource: v1/form.yaml
+  prefix: /form

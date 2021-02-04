@@ -1,0 +1,17 @@
+framework:
+  messenger:
+    failure_transport: send_retry
+    transports:
+      send:
+        dsn: '%env(MESSAGES_DNS)%'
+        retry_strategy:
+          max_retries: 3
+          delay: 1000
+      send_retry:
+        dsn: '%env(FAILED_DNS)%'
+        retry_strategy:
+          max_retries: 10
+          delay: 5000
+
+    routing:
+      'Eobuwie\Recruitment\Application\Command\ContactForm\SendCommand': send

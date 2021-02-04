@@ -1,0 +1,18 @@
+imports:
+  - config/behat/suites.yaml
+
+default:
+  formatters:
+    pretty:
+      verbose: true
+      paths: false
+      snippets: false
+  extensions:
+    FriendsOfBehat\SymfonyExtension:
+      kernel:
+        class: Eobuwie\Recruitment\Kernel
+    Imbo\BehatApiExtension:
+      apiClient:
+        base_uri: nginx:8000
+        timeout: 5.0
+        verify: false
